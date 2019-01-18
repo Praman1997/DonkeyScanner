@@ -1,7 +1,7 @@
 # DonkeyScan
 
 This tool is used to lessen the burden of remembering the nmap scripts and their uses...
-Especially for people like me who like to take shortcuts \(-_-)/
+Especially for people like me who like to take shortcuts
 
 ## Installing the tool
 * First, change the permissions of `install.py` to execute and then run `install.py`
