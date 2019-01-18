@@ -4,7 +4,7 @@ This tool is used to lessen the burden of remembering the nmap scripts and their
 
 ## Installing the tool
 * First, change the permissions of install.py to execute and then run install.py
-'''bash
+```sh
 $ sudo chmod +x install.py
 $ sudo ./install.py
-'''
+```
