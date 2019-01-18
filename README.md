@@ -6,6 +6,7 @@ Especially for people like me who like to take shortcuts
 ## Installing the tool
 * First, change the permissions of `install.py` to execute and then run `install.py`
 > $ sudo chmod +x install.py
+
 > $ sudo ./install.py
 * After installation, simply run the program using the command ```dscan```
 
