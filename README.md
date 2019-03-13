@@ -1,6 +1,6 @@
-# DonkeyScan
+# DonkeyScanner
 
-This tool can not only be used to lessen the burden of remembering the nmap scripts and their uses, but now the changes include adding a new module [Enumerator](https://github.com/Praman1997/Enumerator).<br>
+This tool can be used to lessen the burden of remembering the nmap scripts and their uses, along with a new module [Enumerator](https://github.com/Praman1997/Enumerator).<br>
 Especially for people like me who like to take shortcuts
 
 ## Installing the tool
