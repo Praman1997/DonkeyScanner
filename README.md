@@ -12,7 +12,7 @@ Especially for people like me who like to take shortcuts
 OR, simply,
 
 > $ sudo python install.py
-* After installation, simply run the program using the command ```sudo dscan``` or '```dscan```(if already root)
+* After installation, simply run the program using the command ```sudo dscan``` or ```dscan```(if already root)
 (If not, you will have to run the tool using sudo privileges...)
 ---
 Note: For any other queries or requests, please feel free to contact me through email (```kasliwal.praman008@gmail.com```).
