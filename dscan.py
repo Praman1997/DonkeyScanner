@@ -49,7 +49,9 @@ try:
 		table = DoubleTable(table)
 		print (table.table)
 		print("----------------------------\n\n")
-		option_table = [["No.","Option"],
+
+	def options_list():
+		option_table = [["Command","Explanation..."],
 						["enum","Run ENUMERATOR!"],
 						["getip","Get IP Address from URL (I honestly didn't think that was possible!)"],
 						["make","List available IP Addresses (It's Basic, yo!)"],
@@ -58,32 +60,58 @@ try:
 						["idlescan","Idle or Zombie Scan ('WTF?!' Stuff)"],
 						["evasion","IDS, IPS or Firewall Evasion ('I know what I am doing...' Stuff)"],
 						["osscan","Operating System detection ('Woah!!! Magic!!!' Stuff)"],
-						["exit", "Whimp out and go home!"]]
+						["help","Show this list at any point of time"],
+						["banner","Show random banner (They are really cool...)"],
+						["cls","Clear Screen"],
+						["exit","Whimp out and go home!"]]
 		option_table = DoubleTable(option_table)
 		print (option_table.table)
-		initial_choice = raw_input(">> ")
+		command()
+
+	def command():
+		initial_choice = raw_input("dscan>> ")
 		if (initial_choice == "make"):
 			make_list()
+			command()
 		elif (initial_choice == "enum"):
 			run_enum()
+			command()
 		elif (initial_choice == "getip"):
 			getIP()
+			command()
 		elif (initial_choice == "ipscan"):
 			ip_scan()
+			command()
 		elif (initial_choice == "portscan"):
 			port_scan()
+			command()
 		elif (initial_choice == "idlescan"):
 			idle_scan()
+			command()
 		elif (initial_choice == "evasion"):
 			evasion()
+			command()
 		elif (initial_choice == "osscan"):
 			os_detection()
+			command()
+		elif (initial_choice == "help"):
+			options_list()
+			command()
+		elif (initial_choice == "banner"):
+			os.system("clear")
+			home()
+			command()
+		elif (initial_choice == "cls"):
+			os.system("clear")
+			command()
 		elif (initial_choice == "exit"):
 			exit(0)
 		else:
 			print ("Error 404: Command not found. Please try again!")
 			sleep(1)
-			home()
+			print ("Note: Enter 'help' for command list...\n")
+			sleep(1)
+			command()
 
 	def make_list():
 		os.system("clear")
@@ -101,11 +129,11 @@ try:
 		if (show_list == "y" or show_list == "Y"):
 			os.system('echo "Showing the list:\n" && cat /opt/dscan/available_ip_addresses.txt')
 			sleep (1)
-			home()
+
 	def run_enum():
 		enumerator.run()
 		sleep (5)
-		home()
+
 	def getIP():
 		os.system("clear")
 		print(""" \033[1;36m
@@ -118,7 +146,7 @@ try:
 		print (socket.gethostbyname(url))
 		print ("Note: Copy the IP Address, I will wait for 5 seconds!")
 		sleep(5)
-		home()
+
 	def ip_scan():
 		os.system("clear")
 		print(""" \033[1;36m
@@ -136,10 +164,10 @@ try:
 		else:
 			print ("Incorrect Choice!!! It was either 'A' or 'S'... Are you thick?!!\n")
 			sleep(1)
-			home()
 		os.system(command)
 		sleep(1)
 		ip_scan()
+
 	def idle_scan():
 		os.system("clear")
 		print(""" \033[1;36m
@@ -156,9 +184,7 @@ try:
 		 	 	 ["home","Go back to Home"]]
 		print (tabulate(table, stralign="center",tablefmt="fancy_grid",headers="firstrow"))
 		print ("")
-		option_table = DoubleTable(table_data)
-		print (table.table)
-		scan_type = raw_input("Choice >> ")
+		scan_type = raw_input("dscan/idlescan>> ")
 		if (scan_type == "idle"):
 			target = raw_input("Enter Target IP: ")
 			port = raw_input("Enter Specific Port: ")
@@ -198,11 +224,13 @@ try:
 			os.system(command)
 			print("----------------------------------------------------")
 		elif (scan_type == "home"):
-			home()
+			print("\n\n")
+			pass
 		else:
 			print ("Are you thick?! How was that even difficult?!")
 			sleep (2)
 			idle_scan()
+
 	def evasion():
 		os.system("clear")
 		print(""" \033[1;36m
@@ -223,6 +251,7 @@ try:
 			sleep(2)
 			evasion()
 		os.system(command)
+
 	def os_detection():
 		os.system("clear")
 		print(""" \033[1;36m
@@ -242,3 +271,4 @@ except KeyboardInterrupt:
 #-------------------------------------------------------------------------------------------
 os.system("clear")
 home()
+options_list()
