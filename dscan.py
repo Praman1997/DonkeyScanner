@@ -63,6 +63,7 @@ try:
 						["help","Show this list at any point of time"],
 						["banner","Show random banner (They are really cool...)"],
 						["cls","Clear Screen"],
+						["update","Update to current version of DonkeyScanner"],
 						["exit","Whimp out and go home!"]]
 		option_table = DoubleTable(option_table)
 		print (option_table.table)
@@ -104,6 +105,9 @@ try:
 		elif (initial_choice == "cls"):
 			os.system("clear")
 			command()
+		elif (initial_choice == "update"):
+			update()
+			command()
 		elif (initial_choice == "exit"):
 			exit(0)
 		else:
@@ -112,6 +116,19 @@ try:
 			print ("Note: Enter 'help' for command list...\n")
 			sleep(1)
 			command()
+
+	def update():
+		os.system("clear")
+		print ("[+] Updating DonkeyScanner! This may take a few minutes")
+		try:
+			os.system("git clone https://github.com/Praman1997/DonkeyScanner.git && cd DonkeyScanner && sudo python install.py && cd .. && sudo rm -rf DonkeyScanner/")
+			print ("[+] DonkeyScanner updated successfully... Please restart using 'dscan' command as before...")
+		except Exception as e:
+			print ("[-] Error while updating the DonkeyScanner...\n[*] In order to do it manually, please type the following commands:")
+			print ("[Step 1] git clone https://github.com/Praman1997/DonkeyScanner.git && cd DonkeyScanner")
+			print ("[Step 2] sudo python install.py\n\t[*] Once prompted, select the appropriate option...")
+			print ("[Step 3] cd .. && sudo rm -rf DonkeyScanner/")
+			print ("[Step 4] sudo dscan")
 
 	def make_list():
 		os.system("clear")
