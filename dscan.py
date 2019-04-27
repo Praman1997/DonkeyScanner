@@ -4,6 +4,7 @@
 # Imports
 import enumerator
 import os, sys, traceback
+import socket
 import ipaddress as ip
 from pathlib import Path
 from terminaltables import DoubleTable
@@ -50,6 +51,7 @@ try:
 		print("----------------------------\n\n")
 		option_table = [["No.","Option"],
 						["enum","Run ENUMERATOR!"],
+						["getip","Get IP Address from URL (I honestly didn't think that was possible!)"],
 						["make","List available IP Addresses (It's Basic, yo!)"],
 						["ipscan","IP Scan or Subnet Scan (Beginners' Stuff)"],
 						["portscan","Port Scanning (Intermediate Stuff)"],
@@ -64,6 +66,8 @@ try:
 			make_list()
 		elif (initial_choice == "enum"):
 			run_enum()
+		elif (initial_choice == "getip"):
+			getIP()
 		elif (initial_choice == "ipscan"):
 			ip_scan()
 		elif (initial_choice == "portscan"):
@@ -102,12 +106,25 @@ try:
 		enumerator.run()
 		sleep (5)
 		home()
+	def getIP():
+		os.system("clear")
+		print(""" \033[1;36m
+┌══════════════════════════════════════════════════════════════┐
+█                                                              █
+█        		Get IP Address		               █
+█                                                              █
+└══════════════════════════════════════════════════════════════┘     \033[1;m""")
+		url = raw_input("Enter URL: ")
+		print (socket.gethostbyname(url))
+		print ("Note: Copy the IP Address, I will wait for 5 seconds!")
+		sleep(5)
+		home()
 	def ip_scan():
 		os.system("clear")
 		print(""" \033[1;36m
 ┌══════════════════════════════════════════════════════════════┐
 █                                                              █
-█        				 The IP Scanner		               	   █
+█        		The IP Scanner		               █
 █                                                              █
 └══════════════════════════════════════════════════════════════┘     \033[1;m""")
 		address = raw_input("Enter IP or Subnet (Eg: 192.168.0.25 or 192.168.0.*): ")
