@@ -56,7 +56,6 @@ try:
 						["getip","Get IP Address from URL (I honestly didn't think that was possible!)"],
 						["make","List available IP Addresses (It's Basic, yo!)"],
 						["ipscan","IP Scan or Subnet Scan (Beginners' Stuff)"],
-						["portscan","Port Scanning (Intermediate Stuff)"],
 						["idlescan","Idle or Zombie Scan ('WTF?!' Stuff)"],
 						["evasion","IDS, IPS or Firewall Evasion ('I know what I am doing...' Stuff)"],
 						["osscan","Operating System detection ('Woah!!! Magic!!!' Stuff)"],
@@ -67,55 +66,105 @@ try:
 						["exit","Whimp out and go home!"]]
 		option_table = DoubleTable(option_table)
 		print (option_table.table)
-		command()
 
 	def command():
-		initial_choice = raw_input("dscan>> ")
+		try:
+			initial_choice = raw_input("dscan>> ")
+		except KeyboardInterrupt as k:
+			print ("\n[*] Keyboard Interrupt Detected!")
+			command()
+		
 		if (initial_choice == "make"):
-			make_list()
-			command()
+			try:
+				make_list()
+				command()
+			except KeyboardInterrupt as k:
+				print ("\n[*] Keyboard Interrupt Detected!")
+				command()
 		elif (initial_choice == "enum"):
-			run_enum()
-			command()
+			try:
+				run_enum()
+				command()
+			except KeyboardInterrupt as k:
+				print ("\n[*] Keyboard Interrupt Detected!")
+				command()
 		elif (initial_choice == "getip"):
-			getIP()
-			command()
+			try:
+				getIP()
+				command()
+			except KeyboardInterrupt as k:
+				print ("\n[*] Keyboard Interrupt Detected!")
+				command()
 		elif (initial_choice == "ipscan"):
-			ip_scan()
-			command()
-		elif (initial_choice == "portscan"):
-			port_scan()
-			command()
+			try:
+				ip_scan()
+				command()
+			except KeyboardInterrupt as k:
+				print ("\n[*] Keyboard Interrupt Detected!")
+				command()
 		elif (initial_choice == "idlescan"):
-			idle_scan()
-			command()
+			try:
+				idle_scan()
+				command()
+			except KeyboardInterrupt as k:
+				print ("\n[*] Keyboard Interrupt Detected!")
+				command()
 		elif (initial_choice == "evasion"):
-			evasion()
-			command()
+			try:
+				evasion()
+				command()
+			except KeyboardInterrupt as k:
+				print ("\n[*] Keyboard Interrupt Detected!")
+				command()
 		elif (initial_choice == "osscan"):
-			os_detection()
-			command()
+			try:
+				os_detection()
+				command()
+			except KeyboardInterrupt as k:
+				print ("\n[*] Keyboard Interrupt Detected!")
+				command()
 		elif (initial_choice == "help"):
-			options_list()
-			command()
+			try:
+				options_list()
+				command()
+			except KeyboardInterrupt as k:
+				print ("\n[*] Keyboard Interrupt Detected!")
+				command()
 		elif (initial_choice == "banner"):
-			os.system("clear")
-			home()
-			command()
+			try:
+				os.system("clear")
+				home()
+				command()
+			except KeyboardInterrupt as k:
+				print ("\n[*] Keyboard Interrupt Detected!")
+				command()
 		elif (initial_choice == "cls"):
-			os.system("clear")
-			command()
+			try:
+				os.system("clear")
+				command()
+			except KeyboardInterrupt as k:
+				print ("\n[*] Keyboard Interrupt Detected!")
+				command()
 		elif (initial_choice == "update"):
-			update()
-			command()
+			try:
+				update()
+				command()
+			except KeyboardInterrupt as k:
+				print ("\n[*] Keyboard Interrupt Detected!")
+				command()
 		elif (initial_choice == "exit"):
+			print ("[*] GoodBye!!!")
 			exit(0)
 		else:
-			print ("Error 404: Command not found. Please try again!")
-			sleep(1)
-			print ("Note: Enter 'help' for command list...\n")
-			sleep(1)
-			command()
+			try:
+				print ("Error 404: Command not found. Please try again!")
+				sleep(1)
+				print ("Note: Enter 'help' for command list...\n")
+				sleep(1)
+				command()
+			except KeyboardInterrupt as k:
+				print ("\n[*] Keyboard Interrupt Detected!")
+				command()
 
 	def update():
 		os.system("clear")
@@ -286,6 +335,11 @@ except KeyboardInterrupt:
 	print ("[-] DonkeyScanner Aborted!")
 
 #-------------------------------------------------------------------------------------------
-os.system("clear")
-home()
-options_list()
+try:
+	os.system("clear")
+	home()
+	options_list()
+	command()
+except KeyboardInterrupt as k:
+	print ("\n[*] Keyboard Interrupt Detected!")
+	command()
