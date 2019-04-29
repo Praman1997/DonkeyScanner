@@ -231,8 +231,6 @@ try:
 			print ("Incorrect Choice!!! It was either 'A' or 'S'... Are you thick?!!\n")
 			sleep(1)
 		os.system(command)
-		sleep(1)
-		ip_scan()
 
 	def idle_scan():
 		os.system("clear")
