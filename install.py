@@ -24,7 +24,7 @@ def main():
 	system0 = raw_input(">>> ")
 	if system0 == "1":
 		print("\033[1;34m\n[++] Installing DonkeyScan ... \033[1;m")
-		install = os.system("sudo apt-get update && sudo apt-get install -y nmap build-essential python-pip ruby-dev git libpcap-dev libgmp3-dev && sudo pip install tabulate terminaltables && sudo pip install python-geoip-geolite2 requests socket pathlib && sudo apt install dnsrecon whois host traceroute")
+		install = os.system("sudo apt-get update && sudo apt-get install -y nmap build-essential python-pip ruby-dev git libpcap-dev libgmp3-dev && pip install tabulate terminaltables && pip install python-geoip-geolite2 requests socket pathlib && sudo apt install dnsrecon whois host traceroute")
 
 		install1 = os.system("""sudo mkdir -p /opt/dscan && sudo cp -R tools/ /opt/dscan/ && sudo cp dscan.py /opt/dscan/dscan.py && sudo cp banner.py /opt/dscan/banner.py && sudo cp enumerator.py /opt/dscan/enumerator.py && sudo ln -s /opt/dscan/dscan.py /usr/bin/dscan && sudo chmod +x /usr/bin/dscan && tput setaf 34; echo "DonkeyScan has been sucessfuly instaled. Execute 'dscan' in your terminal." """)
 	elif system0 == "2":
